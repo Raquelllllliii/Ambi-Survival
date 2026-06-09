@@ -24,9 +24,9 @@ level3.gefahren = {
 }
 
 level3.beweger = {
-    {x = 430, y = 500, start = 500, w = 40, h = 120, amp = 120, tempo = 2.5, diff = 0},
-    {x = 980, y = 320, start = 320, w = 40, h = 140, amp = 110, tempo = 3.5, diff = 3.14},
-    {x = 1130, y = 580, start = 580, w = 80, h = 20, amp = 120, tempo = 4.5, diff = 0}
+    {x = 430, y = 500, start = 500, w = 40, h = 120, distance = 120, tempo = 2.5, diff = 0},
+    {x = 980, y = 320, start = 320, w = 40, h = 140, distance = 110, tempo = 3.5, diff = 3.14},
+    {x = 1130, y = 580, start = 580, w = 80, h = 20, distance = 120, tempo = 4.5, diff = 0}
 }
 
 level3.sterne = {}
@@ -69,7 +69,7 @@ function level3.update(dt)
     end
 
     for i = 1, #level3.beweger do
-        level3.beweger[i].y = level3.beweger[i].start + math.sin(love.timer.getTime() * level3.beweger[i].tempo + level3.beweger[i].diff) * level3.beweger[i].amp
+        level3.beweger[i].y = level3.beweger[i].start + math.sin(love.timer.getTime() * level3.beweger[i].tempo + level3.beweger[i].diff) * level3.beweger[i].distance
         if kollision(level3.spieler, level3.beweger[i]) then Zustand = "gameover" end
     end
 

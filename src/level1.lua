@@ -20,13 +20,13 @@ level1.gefahren = {
     {x = 1000, y = 500, w = 40, h = 40}, {x = 1300, y = 650, w = 30, h = 170}
 }
 
--- Ganz einfache Sterne-Schleife ohne table.insert
+--sterne im Hintergrund
 level1.sterne = {}
 for i = 1, 80 do
     level1.sterne[i] = {x = math.random(0, 1600), y = math.random(0, 900), speed = math.random(15, 50), size = math.random(1, 3)}
 end
 
--- Simpler Kollisions-Check
+
 function kollision(a, b)
     return a.x < b.x + b.w and a.x + a.w > b.x and a.y < b.y + b.h and a.y + a.h > b.y
 end
@@ -70,7 +70,7 @@ function level1.update(dt)
 
     level1.spieler.springt = true
 
-    -- Plattformen checken (normale Schleife)
+
     for i = 1, #level1.plattformen do
         local p = level1.plattformen[i]
         if kollision(level1.spieler, p) and level1.spieler.yv > 0 then
