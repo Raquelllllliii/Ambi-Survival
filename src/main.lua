@@ -19,8 +19,6 @@ function love.update(dt)
         level2.update(dt)
     elseif Zustand == "level3" then
         level3.update(dt)
-    elseif Zustand == "gameover" then
-        gameover.update(dt)
     elseif Zustand == "win" then
         win.update(dt)
     end

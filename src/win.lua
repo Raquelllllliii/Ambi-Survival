@@ -90,9 +90,12 @@ end
 
 function win.keypressed(key)
     if key == "r" then
+        globalStars = 0    -- FIX: Sterne wieder auf 0 setzen beim Neustart!
         Zustand = "level1"
-        if level1 and type(level1.load) == "function" then level1.load() end
+        if level1
+        then level1.load() end
     elseif key == "m" then
+        globalStars = 0    -- FIX: Sterne wieder auf 0 setzen, wenn man ins Menü geht!
         Zustand = "menu"
     end
 end
